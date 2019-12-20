@@ -12,7 +12,7 @@ def render_json(code=0,data=None):
     }
     # 调试时数据格式化
     if settings.DEBUG:
-        dic_dumps = json.dumps(dic,ensure_ascii=False,indent=4,sort_keys=True)
+        dic_dumps = json.dumps(dic, ensure_ascii=False,indent=4,sort_keys=True)
     # 传输时 json 压缩
     else:
         dic_dumps = json.dumps(dic,ensure_ascii=False,separators=[',',':'])

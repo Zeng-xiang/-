@@ -17,5 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 import user.api as api
 urlpatterns = [
-    url(r'^api/zengxiang/submit/phone/$',api.submit_phone)
+    url(r'^api/zengxiang/submit/phone/$',api.submit_phone),
+    url(r'^api/login/submit/phone/$',api.submit_vcode),
+    url(r'^api/user/get/profile/$',api.get_profile)
 ]
