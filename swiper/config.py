@@ -18,3 +18,8 @@ YZX_PARAMS = {
     "param": None, # 不固定
     "mobile": None, # 不固定  手机号码
 }
+
+# 七牛配置
+AK = '-7VXB9aZh396ORBWAAgxA8jahMi6Ggi8qFV9MSLV'
+SK = 'hQsSGHhc--W7kC9leTMkK1yVnCVYF2BjO4lAgLMi'
+QN_URL = 'http://q2u9ey8kw.bkt.clouddn.com/'

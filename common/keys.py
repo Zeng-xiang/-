@@ -3,3 +3,7 @@
 """
 #key前缀
 VCODE_KEY = 'VOCDE_%s'
+
+AVATAR_KEY = 'avatar_%s'
+
+PROFILE_KEY = 'prifile_%s'

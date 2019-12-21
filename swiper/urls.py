@@ -19,5 +19,7 @@ import user.api as api
 urlpatterns = [
     url(r'^api/zengxiang/submit/phone/$',api.submit_phone),
     url(r'^api/login/submit/phone/$',api.submit_vcode),
-    url(r'^api/user/get/profile/$',api.get_profile)
+    url(r'^api/user/get/profile/$',api.get_profile),
+    url(r'api/user/edit/profile/$',api.edit_profile),
+    url(r'^api/user/upload/avatar/$',api.upload_avatar),
 ]

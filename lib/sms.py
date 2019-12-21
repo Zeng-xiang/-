@@ -6,6 +6,7 @@ from django.core.cache import cache  #django自带缓存 #默认存到内存
 from common import keys
 from swiper import config
 
+from worker import  celery_app
 
 def gen_vcode(size=4):
     start = 10 * (size - 1)
@@ -13,7 +14,7 @@ def gen_vcode(size=4):
     # randint 是全闭区间
     return str(random.randint(start, end))
 
-
+@celery_app.task
 def send_sms(phone):
 # 我们通过 requests(可以直接发起请求) 来对云之讯发post请求
     params = config.YZX_PARAMS.copy()  #浅拷贝

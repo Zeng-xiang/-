@@ -2,6 +2,9 @@ import datetime
 
 from django.db import models
 
+from django.core.cache import cache
+
+from common import keys
 from lib.minxins import  ModelMixin
 # Create your models here.
 
@@ -37,8 +40,16 @@ class User(models.Model):
     @property
     def profile(self):
         #根据用户的id,找到对应的profile
+        #第一次访问,就从数据库中获取profile
+        #否则就从缓存中获取
+        key = keys.PROFILE_KEY%self.id
+        profile = cache.get(key)
+        if not profile:
+            #如果没有从数据库中获取
+            profile, _ = Profile.objects.get_or_create(id=self.id)
+            #并放入到缓存
+            cache.set(key,profile,timeout=86400 * 14 )
 
-        profile, _ = Profile.objects.get_or_create(id=self.id)
         return profile
 
     def to_dict(self):
